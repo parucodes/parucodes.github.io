@@ -1,6 +1,5 @@
 import React from "react";
 import { Box, Grid, Paper } from "@mui/material";
-import '../styles/FingerDisplay.css';
 
 const fingerMap = {
   'q': 'Left Little', 'w': 'Left Ring', 'e': 'Left Middle', 'r': 'Left Index', 't': 'Left Index',
@@ -8,7 +7,7 @@ const fingerMap = {
   'z': 'Left Little', 'x': 'Left Ring', 'c': 'Left Middle', 'v': 'Left Index', 'b': 'Left Index',
   'y': 'Right Index', 'u': 'Right Index', 'i': 'Right Middle', 'o': 'Right Ring', 'p': 'Right Little',
   'h': 'Right Index', 'j': 'Right Index', 'k': 'Right Middle', 'l': 'Right Ring',
-  'n': 'Right Index', 'm': 'Right Middle'
+  'n': 'Right Index', 'm': 'Right Middle', ' ': 'Right Thumb'
 };
 
 const fingers = ['Left Little', 'Left Ring', 'Left Middle', 'Left Index', 'Left Thumb', 'Right Thumb', 'Right Index', 'Right Middle', 'Right Ring', 'Right Little'];
@@ -19,9 +18,9 @@ const FingerDisplay = ({ word, typedWord }) => {
 
   return (
     <Box sx={{ mt: 2 }}>
-      <Grid container spacing={1} justifyContent="center" sx={{ flexWrap: 'nowrap' }}>
+      <Grid container spacing={1} justifyContent="center" wrap="nowrap">
         {fingers.map(finger => (
-          <Grid item key={finger} sx={{ flexShrink: 1 }}>
+          <Grid item key={finger}>
             <Paper 
               elevation={3} 
               sx={{ 

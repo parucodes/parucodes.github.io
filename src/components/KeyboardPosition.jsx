@@ -1,34 +1,35 @@
-import React from "react";
-import { Box, Grid, Paper } from "@mui/material";
+import React from 'react';
+import { Box, Grid, Paper } from '@mui/material';
 
-const keyboardLayout = [
-  ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
-  ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
-  ['z', 'x', 'c', 'v', 'b', 'n', 'm']
-];
+const keyMap = {
+  'q': 'Q', 'w': 'W', 'e': 'E', 'r': 'R', 't': 'T', 'y': 'Y', 'u': 'U', 'i': 'I', 'o': 'O', 'p': 'P',
+  'a': 'A', 's': 'S', 'd': 'D', 'f': 'F', 'g': 'G', 'h': 'H', 'j': 'J', 'k': 'K', 'l': 'L',
+  'z': 'Z', 'x': 'X', 'c': 'C', 'v': 'V', 'b': 'B', 'n': 'N', 'm': 'M', ' ': 'Space'
+};
 
 const KeyboardPosition = ({ word, typedWord }) => {
   const nextLetter = typedWord.length >= word.length ? " " : word[typedWord.length];
+  const highlightKey = nextLetter === " " ? 'Space' : keyMap[nextLetter.toLowerCase()];
 
   return (
     <Box sx={{ mt: 2 }}>
       <Grid container spacing={1} justifyContent="center">
-        {keyboardLayout.map((row, rowIndex) => (
+        {['qwertyuiop', 'asdfghjkl', 'zxcvbnm '].map((row, rowIndex) => (
           <Grid container item key={rowIndex} spacing={1} justifyContent="center">
-            {row.map((letter, letterIndex) => (
-              <Grid item key={letterIndex}>
+            {row.split('').map(key => (
+              <Grid item key={key}>
                 <Paper 
                   elevation={3} 
                   sx={{ 
-                    width: { xs: 20, sm: 30, md: 40 }, 
-                    height: { xs: 20, sm: 30, md: 40 }, 
+                    width: key === ' ' ? 200 : 40, 
+                    height: 40, 
                     display: 'flex', 
                     alignItems: 'center', 
                     justifyContent: 'center', 
-                    bgcolor: nextLetter === letter ? 'yellow' : 'white'
+                    bgcolor: highlightKey === keyMap[key.toLowerCase()] ? 'yellow' : 'white'
                   }}
                 >
-                  {letter.toUpperCase()}
+                  {keyMap[key.toLowerCase()]}
                 </Paper>
               </Grid>
             ))}

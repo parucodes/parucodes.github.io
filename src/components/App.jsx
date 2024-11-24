@@ -10,6 +10,7 @@ import KeyboardPosition from "./KeyboardPosition";
 import AdSense from "./AdSense";
 import words from "./words";
 import Instructions from "./Instructions";
+import SocialShare from "./SocialShare";
 
 const App = () => {
   const [currentWord, setCurrentWord] = useState("");
@@ -93,18 +94,19 @@ const App = () => {
         <Grid container rowSpacing={0} columnSpacing={0} justifyContent="center" alignItems="stretch" sx={{ height: '100%' }}>
           <Grid item xs={12} sm={3} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <Box id="left-ad-slot" sx={{ width: '100%', height: '100%' }}>
-              <AdSense adClient="ca-pub-XXXXXXXXXXXXXXXX" adSlot="XXXXXXXXXXX" /> {/* Replace with your adClient and adSlot */}
+              <AdSense adClient="ca-pub-2822450910431839" adSlot="XXXXXXXXXXX" /> {/* Replace with your adClient and adSlot */}
             </Box>
           </Grid>
-          <Grid item xs={12} sm={6} sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100%', backgroundColor: '#e0f7fa' }}>  {/* Light cyan background */}
-            <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '100%', mb: 1 }}>
+          <Grid item xs={12} sm={6} sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100%', backgroundColor: '#e0f7fa' }}>
+            <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start', width: '100%', mb: 1 }}>
               <Box sx={{ width: '75%', position: 'relative' }}>
-                <Box sx={{ position: 'absolute', left: '67%', transform: 'translateX(-50%)' }}>
+                <Box sx={{ position: 'absolute', top: 0, left: '67%', transform: 'translateX(-50%)' }}>
+                  <SocialShare />
                   <WordDisplay word={currentWord} />
                 </Box>
               </Box>
               <Box sx={{ width: '25%' }}>
-                <Timer timeRemaining={timeRemaining} sx={{ height: '50px' }} />  {/* Reduced vertical size */}
+                <Timer timeRemaining={timeRemaining} sx={{ height: '50px' }} />
                 <Link component="button" variant="body2" onClick={handleShowInstructions} sx={{ mt: 1 }}>
                   Instructions
                 </Link>
@@ -132,11 +134,11 @@ const App = () => {
               disabled={!inputEnabled || timeRemaining === 0}
               inputRef={inputRef}
             />
-            <WpmDisplay wpm={wpm.toFixed(2)} backgroundColor="#e0f7fa" />  {/* Pass the background color */}
+            <WpmDisplay wpm={Math.round(wpm)} backgroundColor="#e0f7fa" />
           </Grid>
           <Grid item xs={12} sm={3} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <Box id="right-ad-slot" sx={{ width: '100%', height: '100%' }}>
-              <AdSense adClient="ca-pub-XXXXXXXXXXXXXXXX" adSlot="XXXXXXXXXXX" /> {/* Replace with your adClient and adSlot */}
+              <AdSense adClient="ca-pub-2822450910431839" adSlot="XXXXXXXXXXX" /> {/* Replace with your adClient and adSlot */}
             </Box>
           </Grid>
         </Grid>
