@@ -94,7 +94,7 @@ const App = () => {
         <Grid container rowSpacing={0} columnSpacing={0} justifyContent="center" alignItems="stretch" sx={{ height: '100%' }}>
           <Grid item xs={12} sm={3} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <Box id="left-ad-slot" sx={{ width: '100%', height: '100%' }}>
-              <AdSense adClient="ca-pub-2822450910431839" adSlot="XXXXXXXXXXX" /> {/* Replace with your adClient and adSlot */}
+              <AdSense adClient="ca-pub-2822450910431839" adSlot="7854415268" /> {/* Replace with your adClient and adSlot */}
             </Box>
           </Grid>
           <Grid item xs={12} sm={6} sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100%', backgroundColor: '#e0f7fa' }}>
@@ -138,7 +138,7 @@ const App = () => {
           </Grid>
           <Grid item xs={12} sm={3} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <Box id="right-ad-slot" sx={{ width: '100%', height: '100%' }}>
-              <AdSense adClient="ca-pub-2822450910431839" adSlot="XXXXXXXXXXX" /> {/* Replace with your adClient and adSlot */}
+              <AdSense adClient="ca-pub-2822450910431839" adSlot="8975925246" /> {/* Replace with your adClient and adSlot */}
             </Box>
           </Grid>
         </Grid>
